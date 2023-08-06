@@ -2,13 +2,25 @@
 Description
 Memory Matching Game is a classic card-matching game implemented in C. The game offers three levels of difficulty: Easy, Medium, and Hard. The player needs to find matching pairs of cards by selecting two cards at a time. If the selected cards match, the player earns a point and gets to continue their turn. Otherwise, it's the computer's turn to make a move.
 
+![giriş](https://github.com/akeylmz/Card_Matching_Game/assets/97607813/b126d1f3-4682-4cb2-b8df-ddd7268fdacd)
+
 Features
+
 Three difficulty levels: Easy (16 cards), Medium (36 cards), and Hard (64 cards).
+
+![oyun kuralları](https://github.com/akeylmz/Card_Matching_Game/assets/97607813/7ee31f0d-66c6-42c6-8047-8823198bbff7)
+
 Simple text-based interface for gameplay.
 Randomized card distribution to ensure a different game every time.
 The game keeps track of the player's and computer's scores.
 Interactive gameplay with messages to guide the player.
 Supports a maximum of 17 points to determine the winner.
+
+
+![orta mod oyun](https://github.com/akeylmz/Card_Matching_Game/assets/97607813/82e5613a-4ae1-4ff5-904f-7e041dc0ff3a)
+![Uploading kolay mod oyun.PNG…]()![zor mod oyun](https://github.com/akeylmz/Card_Matching_Game/assets/97607813/bcc16128-d206-4c48-93f6-c836047e49df)
+
+
 Getting Started
 Prerequisites
 C Compiler (GCC, Clang, etc.)
