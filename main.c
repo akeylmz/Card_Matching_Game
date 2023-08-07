@@ -6,62 +6,62 @@
 
 int main()
 {
-	int seviye;
-	int kolaymatris[4][4];
-	char kolaygosterge[4][4];
-	int kolaydizi[16]={1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8};
-	int kolayhafiza[2][2];
-	int ortamatris[6][6];
-	char ortagosterge[6][6];
-	int ortadizi[36]={1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13,14,14,15,15,16,16,17,17,18,18};
-	int ortahafiza[6][2];
-	int zormatris[8][8];
-	char zorgosterge[8][8];
-	int zordizi[64]={1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13,14,14,15,15,16,16,17,17,18,18,19,19,20,20,21,21,22,22,23,23,24,24,25,25,26,26,27,27,28,28,29,29,30,30,31,31,32,32};
-	int zorhafiza[16][2];
-	int puanoyuncu=0,puanpc=0;
-	int tahminoyuncu=0,tahminpc=0;
-	int satir1,sutun1,satir2,sutun2;
+	int level;
+	int easyMatrix[4][4];
+	char easyTempMatrix[4][4];
+	int easyList[16]={1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8};
+	int easyMemory[2][2];
+	int mediumMatrix[6][6];
+	char mediumTempMatrix[6][6];
+	int mediumList[36]={1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13,14,14,15,15,16,16,17,17,18,18};
+	int mediumMemory[6][2];
+	int hardMatrix[8][8];
+	char hardTempMatrix[8][8];
+	int hardList[64]={1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13,14,14,15,15,16,16,17,17,18,18,19,19,20,20,21,21,22,22,23,23,24,24,25,25,26,26,27,27,28,28,29,29,30,30,31,31,32,32};
+	int hardMemory[16][2];
+	int pointGamer=0,pointPc=0;
+	int guessGamer=0,guessPc=0;
+	int line_1,column_1,line_2,column_2;
 	int i,j,k,l,ex,c,a=0;
 	int t=0;
 	
 	
 	
-   printf("\n\t*********** KART ESLEME OYUNU ***********\n\n\n");
-   
-   printf("ZORLUK SEVIYESINI SECINIZ:\n1-KOLAY\n2-ORTA\n3-ZOR\n\n");
-   scanf("%d",&seviye);
-   
-   
-	system("cls");
-   
-   if(seviye==1){
-   	
-   	printf("SECILEN MOD: KOLAY\n");
-   	printf("KURALLAR:\n*OYUN 8'I ES KART OLMAK UZERE TOPLAM 16 KARTTAN OLUSMAKTADIR\n*SIRA SIZE GELDÝGÝNDE ES OLDUGUNU DUSUNDUGUNUZ KARTLARI SECINIZ\n*DOGRU SECIM YAPTIGINIZ DURUMDA TEKRARDAN KART SECEBILIRSINIZ\n*YANLIS SECIM YAPARSANIZ SIRA BILGISAYARA GECICEKTIR");
-   	printf("\n\n");
-   	printf("OYUNA BASLA...");
-   	for(i=0;i<4;i++){           //GOSTERGE OLUSTURMA
+   printf("\n\t*********** CARD MATCHING GAME ***********\n\n\n");
+
+    printf("CHOOSE DIFFICULTY LEVEL:\n1-EASY\n2-MEDIUM\n3-HARD\n\n");
+    scanf("%d", &level);
+
+    system("cls");
+
+    if (level == 1)
+    {
+        printf("SELECTED MODE: EASY\n");
+        printf("RULES:\n*THE GAME CONSISTS OF 16 CARDS, 8 PAIRS IN TOTAL\n*WHEN IT'S YOUR TURN, SELECT TWO CARDS THAT YOU THINK ARE THE SAME\n*IF YOU MAKE A CORRECT MATCH, YOU CAN CONTINUE YOUR TURN\n*IF YOU MAKE A WRONG MATCH, IT WILL BE THE COMPUTER'S TURN");
+        printf("\n\n");
+        printf("STARTING THE GAME...");
+
+   	for(i=0;i<4;i++){           //CREATING INDICATORS
    		for(j=0;j<4;j++){
-   			kolaygosterge[i][j]='*';
+   			easyTempMatrix[i][j]='*';
 		   }
 	   }
 	   
 	    
-	    for(i=0;i<4;i++){        //MATRIS SIFIRLAMA
+	    for(i=0;i<4;i++){        //RESET MATRIX
             for(j=0;j<4;j++){
-                kolaymatris[i][j]=0;
+                easyMatrix[i][j]=0;
             }
         }
         
 	    srand(time(NULL));
     
-    for(i=0; i<16; i++){         //MATRIS OLUSTURMA
+    for(i=0; i<16; i++){         //CREATING THE MATRIX
         k = rand() %4  ;
         l = rand() %4  ;
         
-        if(kolaymatris[k][l]==0){
-            kolaymatris[k][l]=kolaydizi[i];
+        if(easyMatrix[k][l]==0){
+            easyMatrix[k][l]=easyList[i];
             
         }     
          else{
@@ -69,47 +69,47 @@ int main()
         }
     }
     
-    while(puanoyuncu < 5 && puanpc < 5 && puanoyuncu+puanpc < 8){    //OYUN BASLIYOR <3
+    while(pointGamer < 5 && pointPc < 5 && pointGamer+pointPc < 8){    //Game Start <3
     	
     	do{
     		
     			getch();
 	   	system("cls");
     		
-    		printf("\t      OYUN TAHTASI");
+    		printf("\t      GAME BOARD");
 	   printf("\n\n\n");
 	   		for(i=0;i<4;i++){   
-	   printf("\t\t");          //GOSTERGE YANSITMA
+	   printf("\t\t");          //DISPLAY
         for(j=0;j<4;j++){
         	
-            printf("%c ",kolaygosterge[i][j]);
+            printf("%c ",easyTempMatrix[i][j]);
         	}
     
 	    printf("\n");
 	    		}
 	    printf("\n\n\n");
 		
-    	printf("Oyun Sirasi: Oyuncu\n\n");
-    	printf("Ilk Kartin Kordinatlarini Giriniz: ");
-    	scanf("%d %d",&satir1,&sutun1);
-    	printf("Tahmin Ettiginiz Kart: %d\n",kolaymatris[satir1][sutun1]);
+    	printf("Order of Play: Player\n\n");
+    	printf("Enter the Coordinates of the First Card: ");
+    	scanf("%d %d",&line_1,&column_1);
+    	printf("Your Predicted Card: %d\n",easyMatrix[line_1][column_1]);
     	
-    	printf("\nIkinci Kartin Kordinatlarini Giriniz: ");
-    	scanf("%d %d",&satir2,&sutun2);
-    	printf("Tahmin Ettiginiz Kart: %d\n",kolaymatris[satir2][sutun2]);
+    	printf("\nEnter the Coordinates of the Second Card: ");
+    	scanf("%d %d",&line_2,&column_2);
+    	printf("Your Predicted Card: %d\n",easyMatrix[line_2][column_2]);
     	
-    	tahminoyuncu++;
+    	guessGamer++;
     	
-    	if(kolaymatris[satir1][sutun1]==kolaymatris[satir2][sutun2]){
+    	if(easyMatrix[line_1][column_1]==easyMatrix[line_2][column_2]){
     		
-    		puanoyuncu++;
+    		pointGamer++;
     		
-    		printf("Dogru Tahmin \n");
+    		printf("Right Guess \n");
     		
     		
     		
-    		kolaygosterge[satir1][sutun1]='-';
-    		kolaygosterge[satir2][sutun2]='-';
+    		easyTempMatrix[line_1][column_1]='-';
+    		easyTempMatrix[line_2][column_2]='-';
     		
     		
 	   		
@@ -118,51 +118,51 @@ int main()
 			}
 			else{
 				
-				kolayhafiza[0][0]= satir1;
-				kolayhafiza[0][1]= sutun1;
-				kolayhafiza[1][0]= satir2;
-				kolayhafiza[1][1]= sutun2;
+				easyMemory[0][0]= line_1;
+				easyMemory[0][1]= column_1;
+				easyMemory[1][0]= line_2;
+				easyMemory[1][1]= column_2;
 				
 			}
 			
-			printf("\nOyuncunun Puani: %d\n",puanoyuncu);
+			printf("\nGamer's Point: %d\n",pointGamer);
 			
 		}
-		while(kolaymatris[satir1][sutun1]==kolaymatris[satir2][sutun2]);
+		while(easyMatrix[line_1][column_1]==easyMatrix[line_2][column_2]);
 		
 		
 		
 		do{
-			printf("\nOyun Sirasi: Bilgisayar...");
+			printf("\nGame Order: Computer...");
 			
 			getch();
 	   	system("cls");
 	   	
-	   	 printf("\t      OYUN TAHTASI");
+	   	 printf("\t      GAME BOARD");
 	   printf("\n\n\n");
 	   		for(i=0;i<4;i++){   
-	   printf("\t\t");          //GOSTERGE YANSITMA
+	   printf("\t\t");          //DISPLAY
         for(j=0;j<4;j++){
         	
-            printf("%c ",kolaygosterge[i][j]);
+            printf("%c ",easyTempMatrix[i][j]);
         	}
     
 	    printf("\n");
 	    		}
 	    printf("\n\n\n");
 	    		
-	    		printf("Oyun Sirasi: Bilgisayar\n\n"); 
+	    		printf("Order of Play: Computer\n\n"); 
 			
-			satir1=rand()%4;
-			sutun1=rand()%4;
-			printf("Bilgisayarin Tahmini: %d %d:\n",satir1,sutun1);
-			printf("Kartin Degeri: %d\n",kolaymatris[satir1][sutun1]);
+			line_1=rand()%4;
+			column_1=rand()%4;
+			printf("Guess of Computer %d %d:\n",line_1,column_1);
+			printf("Value of Card: %d\n",easyMatrix[line_1][column_1]);
 			
 				ex=0;
 				i=0;
 				while(ex!=1 && i<2){
 			
-					if((kolaymatris[satir1][sutun1]) == (kolaymatris[kolayhafiza[i][0]][kolayhafiza[i][1]]))
+					if((easyMatrix[line_1][column_1]) == (easyMatrix[easyMemory[i][0]][easyMemory[i][1]]))
 					{
 						ex=1;
 						}
@@ -173,22 +173,22 @@ int main()
 				}
 			if(ex == 1){
 				
-				puanpc++;
-				tahminpc++;
+				pointPc++;
+				guessPc++;
 					
 				
-				kolayhafiza[i][0]=satir2;
-				kolayhafiza[i][1]=sutun2;
+				easyMemory[i][0]=line_2;
+				easyMemory[i][1]=column_2;
 				
-					kolaygosterge[satir1][sutun1]='-';
-    				kolaygosterge[satir2][sutun2]='-';
+					easyTempMatrix[line_1][column_1]='-';
+    				easyTempMatrix[line_2][column_2]='-';
 				
-				printf("\nBilgisayarin Tahmini: %d %d\n",satir2,sutun2);
-				printf("Kartin Degeri: %d\n",kolaymatris[satir2][sutun2]);
-				printf("Dogru Tahmin \n\n");
+				printf("\nGuess of Computer %d %d\n",line_2,column_2);
+				printf("Value of Card: %d\n",easyMatrix[line_2][column_2]);
+				printf("Guess Right \n\n");
 				
-				kolayhafiza[i][0]=7;
-				kolayhafiza[i][1]=7;
+				easyMemory[i][0]=7;
+				easyMemory[i][1]=7;
 				
 			}
 		else {
@@ -196,52 +196,52 @@ int main()
 			a=0;
 			while(a==0){
 			
-			satir2=rand()%4;
-			sutun2=rand()%4;
-			if(satir1!=satir2){
-				if(sutun1!=sutun2){
+			line_2=rand()%4;
+			column_2=rand()%4;
+			if(line_1!=line_2){
+				if(column_1!=column_2){
 					a=1;
 				}
 			}
 		}
-			printf("\nBilgisayarin Tahmini: %d %d:\n",satir2,sutun2);
-			printf("Kartin Degeri: %d\n",kolaymatris[satir2][sutun2]);
+			printf("\nGuess of Computer %d %d:\n",line_2,column_2);
+			printf("Value of Card: %d\n",easyMatrix[line_2][column_2]);
 			
-			tahminpc++;
+			guessPc++;
 				
 			
-			if(kolaymatris[satir2][sutun2]==kolaymatris[satir1][sutun1]){
+			if(easyMatrix[line_2][column_2]==easyMatrix[line_1][column_1]){
 				
-				puanpc++;
+				pointPc++;
 				
-					kolaygosterge[satir1][sutun1]='-';
-    				kolaygosterge[satir2][sutun2]='-';
+					easyTempMatrix[line_1][column_1]='-';
+    				easyTempMatrix[line_2][column_2]='-';
 				
 				}
 			}
 			
 			
 			
-			printf("Bilgisayarin Puani: %d \n",puanpc);
+			printf("Point of Computer: %d \n",pointPc);
 			
 			
 			
 		}
-    	while(kolaymatris[satir1][sutun1]==kolaymatris[satir2][sutun2]);
+    	while(easyMatrix[line_1][column_1]==easyMatrix[line_2][column_2]);
     	
-    	printf("\nOyun Sirasi: Oyuncu...");
+    	printf("\nOrder of Play: Player...");
     	
 	}
 		system("cls");
-		if(puanoyuncu<puanpc){
-			printf("\t\***KAZANAN BILGISAYAR***\n\n");
-			printf("TOPLAM PUAN: %d\n",puanpc);
-			printf("TOPLAM TAHMÝN SAYISI: %d",tahminpc);
+		if(pointGamer<pointPc){
+			printf("\t\***PC WIN***\n\n");
+			printf("TOTAL SCORE: %d\n",pointPc);
+			printf("TOTAL NUMBER OF GUESS: %d",guessPc);
 		}
 		else{
-			printf("\t\***KAZANAN OYUNCU***\n\n");
-			printf("TOPLAM PUAN: %d\n",puanoyuncu);
-			printf("TOPLAM TAHMÝN SAYISI: %d",tahminoyuncu);
+			printf("\t\***PLAYER WIN***\n\n");
+			printf("TOTAL SCORE: %d\n",pointGamer);
+			printf("TOTAL NUMBER OF GUESS: %d",guessGamer);
 		}
     
     
@@ -253,84 +253,84 @@ int main()
    	
    	
 }
-   if(seviye==2){
-   	printf("SECILEN MOD: ORTA\n");
-   	printf("KURALLAR:\n*OYUN 18'I ES KART OLMAK UZERE TOPLAM 36 KARTTAN OLUSMAKTADIR\n*SIRA SIZE GELDÝGÝNDE ES OLDUGUNU DUSUNDUGUNUZ KARTLARI SECINIZ\n*DOGRU SECIM YAPTIGINIZ DURUMDA TEKRARDAN KART SECEBILIRSINIZ\n*YANLIS SECIM YAPARSANIZ SIRA BILGISAYARA GECICEKTIR");
+   if(level==2){
+   	printf("SELECTED MODE: MEDIUM\n");
+   	printf("Rules: \ n*Game 18 consists of a total of 36 cards to be Es Card \ n*When it comes to the sequence of the cards you think that you say \ n*If you do the right choice again, you can choose the card again*n If you choose the wrong election");
    	printf("\n\n");
-   	printf("OYUNA BASLA...");
+   	printf("START GAME...");
    	
-   	for(i=0;i<6;i++){           //GOSTERGE OLUSTURMA
+   	for(i=0;i<6;i++){           //CREATING INDICATORS
    		for(j=0;j<6;j++){
-   			ortagosterge[i][j]='*';
+   			mediumTempMatrix[i][j]='*';
 		   }
 	   }
 	   
     
-	for(i=0;i<6;i++){        //MATRIS SIFIRLAMA
+	for(i=0;i<6;i++){        //RESET MATRIX
             for(j=0;j<6;j++){
-                ortamatris[i][j]=0;
+                mediumMatrix[i][j]=0;
             }
         }
         
 	    srand(time(NULL));
     
-    for(i=0; i<36; i++){         //MATRIS OLUSTURMA
+    for(i=0; i<36; i++){         //CREATING THE MATRIX
         k = rand() %6  ;
         l = rand() %6  ;
         
-        if(ortamatris[k][l]==0){
-            ortamatris[k][l]=ortadizi[i];
+        if(mediumMatrix[k][l]==0){
+            mediumMatrix[k][l]=mediumList[i];
             
         }     
          else{
             i--;
         }
     }
-    for(i=0;i<6;i++){         //HAFIZA SIFIRLAMA
+    for(i=0;i<6;i++){         //RESET MEMORY
     	for(j=0;j<2;j++){
-    		ortahafiza[i][j]=7;
+    		mediumMemory[i][j]=7;
 					}
    	}
-     while(puanoyuncu < 10 && puanpc < 10 && (puanoyuncu+puanpc) < 18){    //OYUN BASLIYOR <3
+     while(pointGamer < 10 && pointPc < 10 && (pointGamer+pointPc) < 18){    //OYUN BASLIYOR <3
     	
     	do{
     		
     	getch();
 	   	system("cls");
     		
-    		printf("\t        OYUN TAHTASI");
+    		printf("\t        GAME BOARD");
 	   printf("\n\n\n");
 	   		for(i=0;i<6;i++){  
-	    printf("\t\t");     			 //GOSTERGE YANSITMA
+	    printf("\t\t");     			 //DISPLAY
         for(j=0;j<6;j++){
-            printf("%c ",ortagosterge[i][j]);
+            printf("%c ",mediumTempMatrix[i][j]);
         }
         printf("\n");
     }
     
 	    printf("\n\n\n");
 		
-    	printf("Oyun Sirasi: Oyuncu\n\n");
-    	printf("Ilk Kartin Kordinatlarini Giriniz: ");
-    	scanf("%d %d",&satir1,&sutun1);
-    	printf("Tahmin Ettiginiz Kart: %d\n",ortamatris[satir1][sutun1]);
+    	printf("Order of Play: Player\n\n");
+    	printf("Enter the Coordinates of the First Card: ");
+    	scanf("%d %d",&line_1,&column_1);
+    	printf("Your Predicted Card: %d\n",mediumMatrix[line_1][column_1]);
     	
-    	printf("\nIkinci Kartin Kordinatlarini Giriniz: ");
-    	scanf("%d %d",&satir2,&sutun2);
-    	printf("Tahmin Ettiginiz Kart: %d\n",ortamatris[satir2][sutun2]);
+    	printf("\nEnter the Coordinates of the Second Card ");
+    	scanf("%d %d",&line_2,&column_2);
+    	printf("Your Predicted Card: %d\n",mediumMatrix[line_2][column_2]);
     	
-    	tahminoyuncu++;
+    	guessGamer++;
     	
-    	if(ortamatris[satir1][sutun1]==ortamatris[satir2][sutun2]){
+    	if(mediumMatrix[line_1][column_1]==mediumMatrix[line_2][column_2]){
     		
-    		puanoyuncu++;
+    		pointGamer++;
     		
-    		printf("Dogru Tahmin \n");
+    		printf("Guess Right \n");
     		
     		
     		
-    		ortagosterge[satir1][sutun1]='-';
-    		ortagosterge[satir2][sutun2]='-';
+    		mediumTempMatrix[line_1][column_1]='-';
+    		mediumTempMatrix[line_2][column_2]='-';
     		
     		
 	   		
@@ -339,55 +339,55 @@ int main()
 			}
 			else{
 				
-				ortahafiza[t%6][0]=satir1;
-				ortahafiza[t%6][1]=sutun1;
-				ortahafiza[(t+1)%6][0]=satir2;
-				ortahafiza[(t+1)%6][1]=sutun2;
+				mediumMemory[t%6][0]=line_1;
+				mediumMemory[t%6][1]=column_1;
+				mediumMemory[(t+1)%6][0]=line_2;
+				mediumMemory[(t+1)%6][1]=column_2;
 				
 				t++;
 				t++;
 				
 			}
 			
-			printf("\nOyuncunun Puani: %d\n",puanoyuncu);
+			printf("\nPoint of Gamer: %d\n",pointGamer);
 			
 			
 		}
-		while(ortamatris[satir1][sutun1]==ortamatris[satir2][sutun2]);
+		while(mediumMatrix[line_1][column_1]==mediumMatrix[line_2][column_2]);
 		
 		
 		
 		do{
-			printf("\nOyun Sirasi: Bilgisayar...");
+			printf("\nOrder of Play: Computer...");
 			
 			getch();
 	   	system("cls");
 	   	
-	   	 printf("\t        OYUN TAHTASI");
+	   	 printf("\t        GAME BOARD");
 	   printf("\n\n\n");
 	   		 		for(i=0;i<6;i++){  
-	    printf("\t\t");      						//GOSTERGE YANSITMA
+	    printf("\t\t");      						//DISPLAY
         for(j=0;j<6;j++){
-            printf("%c ",ortagosterge[i][j]);
+            printf("%c ",mediumTempMatrix[i][j]);
         }
         printf("\n");
     }
     
 	    printf("\n\n\n");
 	    		
-	    		printf("Oyun Sirasi: Bilgisayar\n\n"); 
+	    		printf("Order of Play: Computer\n\n"); 
 			
-			satir1=rand()%6;
-			sutun1=rand()%6;
-			printf("Bilgisayarin Tahmini: %d %d:\n",satir1,sutun1);
-			printf("Kartin Degeri: %d\n",ortamatris[satir1][sutun1]);
+			line_1=rand()%6;
+			column_1=rand()%6;
+			printf("Guess of Computer %d %d:\n",line_1,column_1);
+			printf("Value of Card: %d\n",mediumMatrix[line_1][column_1]);
 			
 			
 			    ex=0;
 				i=0;
 				while(ex!=1 && i<6){
 			
-					if((ortamatris[satir1][sutun1]) == (ortamatris[ortahafiza[i][0]][ortahafiza[i][1]]))
+					if((mediumMatrix[line_1][column_1]) == (mediumMatrix[mediumMemory[i][0]][mediumMemory[i][1]]))
 						{
 						ex=1;
 						}
@@ -400,153 +400,152 @@ int main()
 			
 			if(ex==1){
 				
-				puanpc++;
-				tahminpc++;
+				pointPc++;
+				guessPc++;
 					
 				
-				ortahafiza[i][0]=satir2;
-				ortahafiza[i][1]=sutun2;
+				mediumMemory[i][0]=line_2;
+				mediumMemory[i][1]=column_2;
 				
-					ortagosterge[satir1][sutun1]='-';
-    				ortagosterge[satir2][sutun2]='-';
+					mediumTempMatrix[line_1][column_1]='-';
+    				mediumTempMatrix[line_2][column_2]='-';
 				
-				printf("\nBilgisayarin Tahmini: %d %d\n",satir2,sutun2);
-				printf("Kartin Degeri: %d\n",ortamatris[satir2][sutun2]);
-				printf("Dogru Tahminn \n\n");
+				printf("\nGuess of Computer %d %d\n",line_2,column_2);
+				printf("Value of Card: %d\n",mediumMatrix[line_2][column_2]);
+				printf("Guess Rightn \n\n");
 				
-				ortahafiza[i][0]=7;
-				ortahafiza[i][1]=7;
+				mediumMemory[i][0]=7;
+				mediumMemory[i][1]=7;
 				
 			}
 			else{
 			
-			satir2=rand()%6;
-			sutun2=rand()%6;
-			printf("\nBilgisayarin Tahmini: %d %d:\n",satir2,sutun2);
-			printf("Kartin Degeri: %d\n",ortamatris[satir2][sutun2]);
+			line_2=rand()%6;
+			column_2=rand()%6;
+			printf("\nGuess of Computer %d %d:\n",line_2,column_2);
+			printf("Value of Card: %d\n",mediumMatrix[line_2][column_2]);
 			
-			tahminpc++;
+			guessPc++;
 			
-			ortahafiza[t%6][0]=satir1;
-				ortahafiza[t%6][1]=sutun1;
-				ortahafiza[(t+1)%6][0]=satir2;
-				ortahafiza[(t+1)%6][1]=sutun2;
+			mediumMemory[t%6][0]=line_1;
+				mediumMemory[t%6][1]=column_1;
+				mediumMemory[(t+1)%6][0]=line_2;
+				mediumMemory[(t+1)%6][1]=column_2;
 				
 				t++;
 				t++;
 			
-			if(ortamatris[satir2][sutun2]==ortamatris[satir1][sutun1]){
+			if(mediumMatrix[line_2][column_2]==mediumMatrix[line_1][column_1]){
 				
-				puanpc++;
-					printf("Dogru Tahmin \n\n");
+				pointPc++;
+					printf("Guess Right \n\n");
 				
-					ortagosterge[satir1][sutun1]='-';
-    				ortagosterge[satir2][sutun2]='-';
+					mediumTempMatrix[line_1][column_1]='-';
+    				mediumTempMatrix[line_2][column_2]='-';
 				
 				}
 			}
 			
 			
 			
-			printf("Bilgisayarin Puani: %d \n",puanpc);
+			printf("Point of Computer: %d \n",pointPc);
 		}
-    	while(ortamatris[satir1][sutun1]==ortamatris[satir2][sutun2]);
+    	while(mediumMatrix[line_1][column_1]==mediumMatrix[line_2][column_2]);
     	
-    	printf("\nOyun Sirasi: Oyuncu...");
+    	printf("\nOrder of Play: Player...");
     	
     	
 	}
 		system("cls");
-		if(puanoyuncu<puanpc){
-			printf("\t\***KAZANAN BILGISAYAR***\n\n");
-			printf("TOPLAM PUAN: %d\n",puanpc);
-			printf("TOPLAM TAHMÝN SAYISI: %d",tahminpc);
+		if(pointGamer<pointPc){
+			printf("\t\***PC WIN***\n\n");
+			printf("TOTAL SCORE: %d\n",pointPc);
+			printf("TOTAL NUMBER OF GUESS: %d",guessPc);
 		}
 		else{
-			printf("\t\***KAZANAN OYUNCU***");
-			printf("TOPLAM PUAN: %d\n",puanoyuncu);
-			printf("TOPLAM TAHMÝN SAYISI: %d",tahminoyuncu);
+			printf("\t\***PLAYER WIN***");
+			printf("TOTAL SCORE: %d\n",pointGamer);
+			printf("TOTAL NUMBER OF GUESS: %d",guessGamer);
 		}
     
     
    }
-   if(seviye==3){
-   	printf("SECILEN MOD: ZOR\n");
-   	printf("KURALLAR:\n*OYUN 32'SI ES KART OLMAK UZERE TOPLAM 64 KARTTAN OLUSMAKTADIR\n*SIRA SIZE GELDÝGÝNDE ES OLDUGUNU DUSUNDUGUNUZ KARTLARI SECINIZ\n*DOGRU SECIM YAPTIGINIZ DURUMDA TEKRARDAN KART SECEBILIRSINIZ\n*YANLIS SECIM YAPARSANIZ SIRA BILGISAYARA GECICEKTIR");
-   	printf("\n\n");
-   	printf("OYUNA BASLA...");
+   if(level==3){
+   	printf("Selected Mod : HARD\n");
+printf("RULES:\n*GAME CONSISTS OF A TOTAL OF 64 CARDS, 32 of which are ES-CARDS\n*CHOOSE CARDS THAT YOU THINK ARE MATCHES\n*WHEN YOU MAKE THE RIGHT CARD, YOU CAN MAKE A REPEAT CARD* CALL WHEN YOU MAKE A REPEAT CARD. IT IS ICE ");   	printf("\n\n");
+   	printf("START GAME...");
    	
-   	for(i=0;i<8;i++){           //GOSTERGE OLUSTURMA
+   	for(i=0;i<8;i++){           //CREATING INDICATORS
    		for(j=0;j<8;j++){
-   			zorgosterge[i][j]='*';
+   			hardTempMatrix[i][j]='*';
 		   }
 	   }
     
-    	for(i=0;i<8;i++){        //MATRIS SIFIRLAMA
+    	for(i=0;i<8;i++){        //RESET MATRIX
             for(j=0;j<8;j++){
-                zormatris[i][j]=0;
+                hardMatrix[i][j]=0;
             }
         }
         
 	    srand(time(NULL));
     
-    for(i=0; i<64; i++){         //MATRIS OLUSTURMA
+    for(i=0; i<64; i++){         //CREATING THE MATRIX
         k = rand() %8  ;
         l = rand() %8  ;
         
-        if(zormatris[k][l]==0){
-            zormatris[k][l]=zordizi[i];
+        if(hardMatrix[k][l]==0){
+            hardMatrix[k][l]=hardList[i];
             
         }     
          else{
             i--;
         }
     }
-     for(i=0;i<16;i++){         //HAFIZA SIFIRLAMA
+     for(i=0;i<16;i++){         //RESET MEMORY
     	for(j=0;j<2;j++){
-    		zorhafiza[i][j]=8;
+    		hardMemory[i][j]=8;
 					}
    	}
-    while(puanoyuncu < 17 && puanpc < 17 && (puanoyuncu+puanpc) < 32){    //OYUN BASLIYOR <3
+    while(pointGamer < 17 && pointPc < 17 && (pointGamer+pointPc) < 32){    //OYUN BASLIYOR <3
     	
     	do{
     		
     	getch();
 	   	system("cls");
     		
-    		printf("\t        OYUN TAHTASI");
+    		printf("\t        GAME BOARD");
 	   printf("\n\n\n");
 	   		for(i=0;i<8;i++){  
-	    printf("\t\t");     			 //GOSTERGE YANSITMA
+	    printf("\t\t");     			 //DISPLAY
         for(j=0;j<8;j++){
-            printf("%c ",zorgosterge[i][j]);
+            printf("%c ",hardTempMatrix[i][j]);
         }
         printf("\n");
     }
     
 	    printf("\n\n\n");
 		
-    	printf("Oyun Sirasi: Oyuncu\n\n");
-    	printf("Ilk Kartin Kordinatlarini Giriniz: ");
-    	scanf("%d %d",&satir1,&sutun1);
-    	printf("Tahmin Ettiginiz Kart: %d\n",zormatris[satir1][sutun1]);
+    	printf("Order of Play: Player\n\n");
+    	printf("Enter the Coordinates of the First Card: ");
+    	scanf("%d %d",&line_1,&column_1);
+    	printf("Your Predicted Card: %d\n",hardMatrix[line_1][column_1]);
     	
-    	printf("\nIkinci Kartin Kordinatlarini Giriniz: ");
-    	scanf("%d %d",&satir2,&sutun2);
-    	printf("Tahmin Ettiginiz Kart: %d\n",zormatris[satir2][sutun2]);
+    	printf("\nEnter the Coordinates of the Second Card ");
+    	scanf("%d %d",&line_2,&column_2);
+    	printf("Your Predicted Card: %d\n",hardMatrix[line_2][column_2]);
     	
-    	tahminoyuncu++;
+    	guessGamer++;
     	
-    	if(zormatris[satir1][sutun1]==zormatris[satir2][sutun2]){
+    	if(hardMatrix[line_1][column_1]==hardMatrix[line_2][column_2]){
     		
-    		puanoyuncu++;
+    		pointGamer++;
     		
-    		printf("Dogru Tahmin \n");
+    		printf("Guess Right \n");
     		
     		
     		
-    		zorgosterge[satir1][sutun1]='-';
-    		zorgosterge[satir2][sutun2]='-';
+    		hardTempMatrix[line_1][column_1]='-';
+    		hardTempMatrix[line_2][column_2]='-';
     		
     		
 	   		
@@ -555,54 +554,54 @@ int main()
 			}
 			else{
 				
-				zorhafiza[t%16][0]=satir1;
-				zorhafiza[t%16][1]=sutun1;
-				zorhafiza[(t+1)%16][0]=satir2;
-				zorhafiza[(t+1)%16][1]=sutun2;
+				hardMemory[t%16][0]=line_1;
+				hardMemory[t%16][1]=column_1;
+				hardMemory[(t+1)%16][0]=line_2;
+				hardMemory[(t+1)%16][1]=column_2;
 				
 				t++;
 				t++;
 				
 			}
 			
-			printf("\nOyuncunun Puani: %d\n",puanoyuncu);
+			printf("\nPoint of Gamer: %d\n",pointGamer);
 			
 			
 		}
-		while(zormatris[satir1][sutun1]==zormatris[satir2][sutun2]);
+		while(hardMatrix[line_1][column_1]==hardMatrix[line_2][column_2]);
 		
 		
 		
 		do{
-			printf("\nOyun Sirasi: Bilgisayar...");
+			printf("\nOrder of Play: Computer...");
 			
 			getch();
 	   	system("cls");
 	   	
-	   	 printf("\t        OYUN TAHTASI");
+	   	 printf("\t        GAME BOARD");
 	   printf("\n\n\n");
 	   		 		for(i=0;i<8;i++){  
-	    printf("\t\t");      						//GOSTERGE YANSITMA
+	    printf("\t\t");      						//DISPLAY
         for(j=0;j<8;j++){
-            printf("%c ",zorgosterge[i][j]);
+            printf("%c ",hardTempMatrix[i][j]);
         }
         printf("\n");
     }
     
 	    printf("\n\n\n");
 	    		
-	    		printf("Oyun Sirasi: Bilgisayar\n\n"); 
+	    		printf("Order of Play: Computer\n\n"); 
 			
-			satir1=rand()%8;
-			sutun1=rand()%8;
-			printf("Bilgisayarin Tahmini: %d %d:\n",satir1,sutun1);
-			printf("Kartin Degeri: %d\n",zormatris[satir1][sutun1]);
+			line_1=rand()%8;
+			column_1=rand()%8;
+			printf("Guess of Computer %d %d:\n",line_1,column_1);
+			printf("Value of Card: %d\n",hardMatrix[line_1][column_1]);
 			
 			 ex=0;
 				i=0;
 				while(ex!=1 && i<8){
 			
-					if((zormatris[satir1][sutun1]) == (zormatris[zorhafiza[i][0]][zorhafiza[i][1]]))
+					if((hardMatrix[line_1][column_1]) == (hardMatrix[hardMemory[i][0]][hardMemory[i][1]]))
 					{
 						ex=1;
 						}
@@ -613,71 +612,71 @@ int main()
 				}
 				if(ex==1){
 				
-				puanpc++;
-				tahminpc++;
+				pointPc++;
+				guessPc++;
 					
 				
-			zorhafiza[i][0]=satir2;
-				zorhafiza[i][1]=sutun2;
+			hardMemory[i][0]=line_2;
+				hardMemory[i][1]=column_2;
 				
-					zorgosterge[satir1][sutun1]='-';
-    				zorgosterge[satir2][sutun2]='-';
+					hardTempMatrix[line_1][column_1]='-';
+    				hardTempMatrix[line_2][column_2]='-';
 				
-				printf("\nBilgisayarin Tahmini: %d %d\n",satir2,sutun2);
-				printf("Kartin Degeri: %d\n",zormatris[satir2][sutun2]);
-				printf("Dogru Tahmin \n\n");
+				printf("\nGuess of Computer %d %d\n",line_2,column_2);
+				printf("Value of Card: %d\n",hardMatrix[line_2][column_2]);
+				printf("Guess Right \n\n");
 				
-				zorhafiza[i][0]=33;
-				zorhafiza[i][1]=33;
+				hardMemory[i][0]=33;
+				hardMemory[i][1]=33;
 				
 			}
 			else{
 			
-			satir2=rand()%8;
-			sutun2=rand()%8;
-			printf("\nBilgisayarin Tahmini: %d %d:\n",satir2,sutun2);
-			printf("Kartin Degeri: %d\n",zormatris[satir2][sutun2]);
+			line_2=rand()%8;
+			column_2=rand()%8;
+			printf("\nGuess of Computer %d %d:\n",line_2,column_2);
+			printf("Value of Card: %d\n",hardMatrix[line_2][column_2]);
 			
-			tahminpc++;
+			guessPc++;
 			
-			zorhafiza[t%16][0]=satir1;
-				zorhafiza[t%16][1]=sutun1;
-				zorhafiza[(t+1)%16][0]=satir2;
-				zorhafiza[(t+1)%16][1]=sutun2;
+			hardMemory[t%16][0]=line_1;
+				hardMemory[t%16][1]=column_1;
+				hardMemory[(t+1)%16][0]=line_2;
+				hardMemory[(t+1)%16][1]=column_2;
 				
 				t++;
 				t++;
 			
-			if(zormatris[satir2][sutun2]==zormatris[satir1][sutun1]){
+			if(hardMatrix[line_2][column_2]==hardMatrix[line_1][column_1]){
 				
-				puanpc++;
-					printf("Dogru Tahmin \n\n");
+				pointPc++;
+					printf("Guess Right \n\n");
 				
-					zorgosterge[satir1][sutun1]='-';
-    				zorgosterge[satir2][sutun2]='-';
+					hardTempMatrix[line_1][column_1]='-';
+    				hardTempMatrix[line_2][column_2]='-';
 				
 				}
 			}
 			
-			printf("Bilgisayarin Puani: %d \n",puanpc);
+			printf("Point of Computer: %d \n",pointPc);
 			
 			
 		}
-    	while(zormatris[satir1][sutun1]==zormatris[satir2][sutun2]);
+    	while(hardMatrix[line_1][column_1]==hardMatrix[line_2][column_2]);
     	
-    	printf("\nOyun Sirasi: Oyuncu...");
+    	printf("\nOrder of Play: Player...");
     		
 	}
 		system("cls");
-		if(puanoyuncu<puanpc){
-			printf("\t\***KAZANAN BILGISAYAR***\n\n");
-			printf("TOPLAM PUAN: %d\n",puanpc);
-			printf("TOPLAM TAHMÝN SAYISI: %d",tahminpc);
+		if(pointGamer<pointPc){
+			printf("\t\***PC WIN***\n\n");
+			printf("TOTAL SCORE: %d\n",pointPc);
+			printf("TOTAL NUMBER OF GUESS: %d",guessPc);
 		}
 		else{
-			printf("\t\***KAZANAN OYUNCU***");
-			printf("TOPLAM PUAN: %d\n",puanoyuncu);
-			printf("TOPLAM TAHMÝN SAYISI: %d",tahminoyuncu);
+			printf("\t\***PLAYER WIN***");
+			printf("TOTAL SCORE: %d\n",pointGamer);
+			printf("TOTAL NUMBER OF GUESS: %d",guessGamer);
 		}
      
     
