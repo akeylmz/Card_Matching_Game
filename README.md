@@ -1,6 +1,7 @@
-# Memory Matching Game
-Description
-Memory Matching Game is a classic card-matching game implemented in C. The game offers three levels of difficulty: Easy, Medium, and Hard. The player needs to find matching pairs of cards by selecting two cards at a time. If the selected cards match, the player earns a point and gets to continue their turn. Otherwise, it's the computer's turn to make a move.
+# Card Matching Game
+Description:
+This project was made for my undergraduate education at Yıldız Technical University.
+Card Matching Game is a classic card-matching game implemented in C. The game offers three levels of difficulty: Easy, Medium, and Hard. The player needs to find matching pairs of cards by selecting two cards at a time. If the selected cards match, the player earns a point and gets to continue their turn. Otherwise, it's the computer's turn to make a move.
 
 ![giriş](https://github.com/akeylmz/Card_Matching_Game/assets/97607813/b126d1f3-4682-4cb2-b8df-ddd7268fdacd)
 
@@ -33,16 +34,16 @@ git clone https://github.com/akeylmz/Card_Matching_Game.git
 Navigate to the project directory.
 bash
 Copy code
-cd memory-matching-game
+cd Card-matching-game
 Compile the source code using your preferred C compiler.
 css
 
 Copy code
-gcc main.c -o memory_matching_game
+gcc main.c -o Card_matching_game
 Run the executable file.
 bash
 Copy code
-./memory_matching_game
+./Card_matching_game
 Choose the difficulty level (1 for Easy, 2 for Medium, 3 for Hard) and enjoy the game!
 How to Play
 The game board displays a grid of face-down cards represented by asterisks '*'.
@@ -63,6 +64,6 @@ License
 This project is licensed under the MIT License.
 
 Acknowledgments
-This game is inspired by the classic Memory Matching Game and built as a fun coding exercise in C.
+This game is inspired by the classic Card Matching Game and built as a fun coding exercise in C.
 
 Enjoy playing!
