@@ -76,7 +76,7 @@ int main()
     			getch();
 	   	system("cls");
     		
-    		printf("\t      GAME BOARD");
+    		printf("\t\tGAME BOARD");
 	   printf("\n\n\n");
 	   		for(i=0;i<4;i++){   
 	   printf("\t\t");          //DISPLAY
@@ -138,7 +138,7 @@ int main()
 			getch();
 	   	system("cls");
 	   	
-	   	 printf("\t      GAME BOARD");
+	   	 printf("\t\tGAME BOARD");
 	   printf("\n\n\n");
 	   		for(i=0;i<4;i++){   
 	   printf("\t\t");          //DISPLAY
@@ -298,7 +298,7 @@ int main()
     	getch();
 	   	system("cls");
     		
-    		printf("\t        GAME BOARD");
+    		printf("\t\tGAME BOARD");
 	   printf("\n\n\n");
 	   		for(i=0;i<6;i++){  
 	    printf("\t\t");     			 //DISPLAY
@@ -363,7 +363,7 @@ int main()
 			getch();
 	   	system("cls");
 	   	
-	   	 printf("\t        GAME BOARD");
+	   	 printf("\t\tGAME BOARD");
 	   printf("\n\n\n");
 	   		 		for(i=0;i<6;i++){  
 	    printf("\t\t");      						//DISPLAY
@@ -513,7 +513,7 @@ printf("RULES:\n*GAME CONSISTS OF A TOTAL OF 64 CARDS, 32 of which are ES-CARDS\
     	getch();
 	   	system("cls");
     		
-    		printf("\t        GAME BOARD");
+    		printf("\t\tGAME BOARD");
 	   printf("\n\n\n");
 	   		for(i=0;i<8;i++){  
 	    printf("\t\t");     			 //DISPLAY
@@ -578,7 +578,7 @@ printf("RULES:\n*GAME CONSISTS OF A TOTAL OF 64 CARDS, 32 of which are ES-CARDS\
 			getch();
 	   	system("cls");
 	   	
-	   	 printf("\t        GAME BOARD");
+	   	 printf("\t\tGAME BOARD");
 	   printf("\n\n\n");
 	   		 		for(i=0;i<8;i++){  
 	    printf("\t\t");      						//DISPLAY
