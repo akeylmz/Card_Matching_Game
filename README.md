@@ -1,6 +1,6 @@
 # Card Matching Game
 Description:
-This project was made for my undergraduate education at Yıldız Technical University.
+This project was made for my undergraduate education at Yıldız Technical University at 2021.
 Card Matching Game is a classic card-matching game implemented in C. The game offers three levels of difficulty: Easy, Medium, and Hard. The player needs to find matching pairs of cards by selecting two cards at a time. If the selected cards match, the player earns a point and gets to continue their turn. Otherwise, it's the computer's turn to make a move.
 
 ![giriş](https://github.com/akeylmz/Card_Matching_Game/assets/97607813/b126d1f3-4682-4cb2-b8df-ddd7268fdacd)
