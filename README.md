@@ -3,13 +3,14 @@ Description:
 This project was made for my undergraduate education at Yıldız Technical University at 2021.
 Card Matching Game is a classic card-matching game implemented in C. The game offers three levels of difficulty: Easy, Medium, and Hard. The player needs to find matching pairs of cards by selecting two cards at a time. If the selected cards match, the player earns a point and gets to continue their turn. Otherwise, it's the computer's turn to make a move.
 
-![giriş](https://github.com/akeylmz/Card_Matching_Game/assets/97607813/b126d1f3-4682-4cb2-b8df-ddd7268fdacd)
+![giriş](https://github.com/akeylmz/Card_Matching_Game/assets/97607813/d9a0d030-6178-4832-bb5d-e812f18aa674)
+
 
 Features
 
 Three difficulty levels: Easy (16 cards), Medium (36 cards), and Hard (64 cards).
 
-![oyun kuralları](https://github.com/akeylmz/Card_Matching_Game/assets/97607813/7ee31f0d-66c6-42c6-8047-8823198bbff7)
+![oyun kuralları](https://github.com/akeylmz/Card_Matching_Game/assets/97607813/7f6c2580-fba2-4b6c-9999-910c2158458f)
 
 Simple text-based interface for gameplay.
 Randomized card distribution to ensure a different game every time.
@@ -17,10 +18,11 @@ The game keeps track of the player's and computer's scores.
 Interactive gameplay with messages to guide the player.
 Supports a maximum of 17 points to determine the winner.
 
+![kolay mod oyun](https://github.com/akeylmz/Card_Matching_Game/assets/97607813/da583c1e-cdc5-4e20-8051-b40f3c47b3ac)
 
-![orta mod oyun](https://github.com/akeylmz/Card_Matching_Game/assets/97607813/82e5613a-4ae1-4ff5-904f-7e041dc0ff3a)
-![Uploading kolay mod oyun.PNG…]()![zor mod oyun](https://github.com/akeylmz/Card_Matching_Game/assets/97607813/bcc16128-d206-4c48-93f6-c836047e49df)
+![orta mod oyun](https://github.com/akeylmz/Card_Matching_Game/assets/97607813/95f7fd6a-d239-4166-90fa-c07d018bae9f)
 
+![zor mod oyun](https://github.com/akeylmz/Card_Matching_Game/assets/97607813/474bd2cb-e562-465b-8b07-0afccbdbbc8e)
 
 Getting Started
 Prerequisites
