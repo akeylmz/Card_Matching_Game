@@ -68,4 +68,4 @@ This project is licensed under the MIT License.
 Acknowledgments
 This game is inspired by the classic Card Matching Game and built as a fun coding exercise in C.
 
-Enjoy playing!
+Enjoy playing!!
