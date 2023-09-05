@@ -6,7 +6,7 @@ Card Matching Game is a classic card matching game implemented in C. The game of
 ![giriş](https://github.com/akeylmz/Card_Matching_Game/assets/97607813/d9a0d030-6178-4832-bb5d-e812f18aa674)
 
 
-Features
+## Features
 
 Three difficulty levels: Easy (16 cards), Medium (36 cards) and Hard (64 cards).
 
