@@ -42,14 +42,14 @@ int main()
         printf("\n\n");
         printf("STARTING THE GAME...");
 
-   	for(i=0;i<4;i++){           //CREATING INDICATORS
+   	for(i=0;i<4;i++){           // CREATING INDICATORS
    		for(j=0;j<4;j++){
    			easyTempMatrix[i][j]='*';
 		   }
 	   }
 	   
 	    
-	    for(i=0;i<4;i++){        //RESET MATRIX
+	    for(i=0;i<4;i++){        // RESET MATRIX
             for(j=0;j<4;j++){
                 easyMatrix[i][j]=0;
             }
@@ -57,7 +57,7 @@ int main()
         
 	    srand(time(NULL));
     
-    for(i=0; i<16; i++){         //CREATING THE MATRIX
+    for(i=0; i<16; i++){         // CREATING THE MATRIX
         k = rand() %4  ;
         l = rand() %4  ;
         
@@ -70,7 +70,7 @@ int main()
         }
     }
     
-    while(pointGamer < 5 && pointPc < 5 && pointGamer+pointPc < 8){    //Game Start <3
+    while(pointGamer < 5 && pointPc < 5 && pointGamer+pointPc < 8){    // Game Start 
     	
     	do{
     		
